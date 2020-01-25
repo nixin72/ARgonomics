@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 1233584359}
   - component: {fileID: 1233584358}
   - component: {fileID: 1233584360}
+  - component: {fileID: 1233584361}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -244,6 +245,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handleScaleInput: 1
   adjustScale: 0
+--- !u!114 &1233584361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233584357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c669a4cc43174caea1a3748b76f2652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DetectedPlanePrefab: {fileID: 1654175882956584, guid: 6a35c744e5010405c847fad90282d2be,
+    type: 3}
 --- !u!1001 &1307217811
 PrefabInstance:
   m_ObjectHideFlags: 0
