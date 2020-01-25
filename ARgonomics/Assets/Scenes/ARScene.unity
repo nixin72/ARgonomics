@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handleScaleInput: 1
-  adjustScale: 1
+  adjustScale: 0
 --- !u!1001 &1307217811
 PrefabInstance:
   m_ObjectHideFlags: 0
