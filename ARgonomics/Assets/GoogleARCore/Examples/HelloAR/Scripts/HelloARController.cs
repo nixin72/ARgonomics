@@ -68,6 +68,9 @@ namespace GoogleARCore.Examples.HelloAR
         /// </summary>
         private bool m_IsQuitting = false;
 
+        private List<GameObject> gameObjects = new List<GameObject>(2);
+        private List<Anchor> anchors = new List<Anchor>(2);
+
         /// <summary>
         /// The Unity Awake() method.
         /// </summary>
@@ -151,6 +154,34 @@ namespace GoogleARCore.Examples.HelloAR
 
                     // Make game object a child of the anchor.
                     gameObject.transform.parent = anchor.transform;
+
+                    if(gameObjects.Count == 0 || gameObjects.Count == 1)
+                    {
+                        Debug.Log("HELLO BITCH, ADDED");
+                        gameObjects.Add(gameObject);
+                        anchors.Add(anchor);
+
+                        if (gameObjects.Count == 2)
+                        {
+                            var distance = Vector3.Distance(gameObjects[0].transform.position, gameObjects[1].transform.position);
+                            _ShowAndroidToastMessage(distance.ToString());
+                        }
+                    } else
+                    {
+                        Debug.Log("HELLO BITCH, CLEARED");
+                        foreach(GameObject obj in gameObjects)
+                        {
+                            Destroy(obj);
+                        }
+                        gameObjects.Clear();
+                        foreach(Anchor anc in anchors)
+                        {
+                            Destroy(anc);
+                        }
+                        anchors.Clear();
+                        gameObjects.Add(gameObject);
+                        anchors.Add(anchor);
+                    }
                 }
             }
         }
