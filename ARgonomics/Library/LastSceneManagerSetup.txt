@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/SplashScene.unity
+=======
+- path: Assets/Scenes/ArgonomicsScene.unity
+>>>>>>> desk-toast
   isLoaded: 1
   isActive: 1
   isSubScene: 0
