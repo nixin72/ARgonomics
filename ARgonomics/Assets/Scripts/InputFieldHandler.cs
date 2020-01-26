@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class InputFieldHandler : MonoBehaviour
 {
 
@@ -33,6 +32,7 @@ public class InputFieldHandler : MonoBehaviour
         var isNumeric = int.TryParse(str, out int num);
         if (isNumeric && num > 0f && num < 300f)
         {
+            Color green = new Color(175/255, 1, 150/255);
             inputField.image.color = Color.green;
             //activate buttons
             deskButton.SetActive(true);
@@ -41,7 +41,8 @@ public class InputFieldHandler : MonoBehaviour
         }
         else
         {
-            inputField.image.color = Color.red;
+            Color red = new Color(1, 150/255, 150/255);
+            inputField.image.color = red;
             //deactivate buttons
             deskButton.SetActive(false);
             chairButton.SetActive(false);
