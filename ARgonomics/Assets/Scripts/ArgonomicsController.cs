@@ -148,7 +148,6 @@ public class ArgonomicsController : MonoBehaviour
 
                 if (gameObjects.Count == 0 || gameObjects.Count == 1)
                 {
-                    Debug.Log("HELLO BITCH, ADDED");
                     gameObjects.Add(gameObject);
                     anchors.Add(anchor);
 
@@ -176,7 +175,6 @@ public class ArgonomicsController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("HELLO BITCH, CLEARED");
                     foreach (GameObject obj in gameObjects)
                     {
                         Destroy(obj);
