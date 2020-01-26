@@ -155,7 +155,21 @@ public class ArgonomicsController : MonoBehaviour
                     if (gameObjects.Count == 2)
                     {
                         var distance = Vector3.Distance(gameObjects[0].transform.position, gameObjects[1].transform.position);
-                        _ShowAndroidToastMessage(distance.ToString());
+                        var hardcodedPersonHeight = 1.50;
+
+                        // if distance positive --> too high
+                        // if distance negative --> too low
+                        // transferring it into cm to make it easier for the user to understand
+                        // random numbers are just the ergonometry ratio
+                        var adjustmentHeight = (distance - 14 * hardcodedPersonHeight / 33 - 40 / 11) * 100;
+
+                        if (adjustmentHeight > 0)
+                        {
+                            _ShowAndroidToastMessage(string.Format("Please lower the desk by %s cm", adjustmentHeight));
+                        } else
+                        {
+                            _ShowAndroidToastMessage(string.Format("Please raise the desk by %s cm", adjustmentHeight));
+                        }
                     }
                 }
                 else
