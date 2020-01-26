@@ -22,8 +22,28 @@ public class InputFieldHandler : MonoBehaviour
 
     public void ValueChangedCheck()
     {
+        ValidateInput(inputField.text);
         PlayerPrefs.SetString("Height", inputField.text);
         _ShowAndroidToastMessage(inputField.text);
+    }
+
+    private void ValidateInput(string str)
+    {
+        int num;
+        var isNumeric = int.TryParse(str, out num);
+        if(isNumeric && num > 0f && num < 300f)
+        {
+            inputField.image.color = Color.green;
+            //activate buttons
+            GameObject.Find("Desk").SetActive(true);
+            GameObject.Find("Chair").SetActive(true);
+        } else
+        {
+            inputField.image.color = Color.red;
+            //deactivate buttons
+            GameObject.Find("Desk").SetActive(false);
+            GameObject.Find("Chair").SetActive(false);
+        }
     }
 
     private void _ShowAndroidToastMessage(string message)
