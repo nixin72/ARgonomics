@@ -7,61 +7,45 @@ public class InputFieldHandler : MonoBehaviour
 {
 
     public UnityEngine.UI.InputField inputField;
+    private GameObject chairButton;
+    private GameObject deskButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        inputField.onValueChanged.AddListener(delegate { ValueChangedCheck(); });
+        chairButton = GameObject.Find("Desk");
+        deskButton = GameObject.Find("Chair");
+        chairButton.SetActive(false);
+        deskButton.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    public void ValueChangedCheck()
-    {
-        ValidateInput(inputField.text);
-        PlayerPrefs.SetString("Height", inputField.text);
-        _ShowAndroidToastMessage(inputField.text);
-    }
-
-    private void ValidateInput(string str)
-    {
-        int num;
-        var isNumeric = int.TryParse(str, out num);
-        if(isNumeric && num > 0f && num < 300f)
+        if(ValidateInput(inputField.text))
         {
-            inputField.image.color = Color.green;
-            //activate buttons
-            GameObject.Find("Desk").SetActive(true);
-            GameObject.Find("Chair").SetActive(true);
-        } else
-        {
-            inputField.image.color = Color.red;
-            //deactivate buttons
-            GameObject.Find("Desk").SetActive(false);
-            GameObject.Find("Chair").SetActive(false);
+            PlayerPrefs.SetString("Height", inputField.text);
         }
     }
 
-    private void _ShowAndroidToastMessage(string message)
+    public bool ValidateInput(string str)
     {
-        AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        AndroidJavaObject unityActivity =
-            unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
-
-        if (unityActivity != null)
+        var isNumeric = int.TryParse(str, out int num);
+        if (isNumeric && num > 0f && num < 300f)
         {
-            AndroidJavaClass toastClass = new AndroidJavaClass("android.widget.Toast");
-            unityActivity.Call("runOnUiThread", new AndroidJavaRunnable(() =>
-            {
-                AndroidJavaObject toastObject =
-                    toastClass.CallStatic<AndroidJavaObject>(
-                        "makeText", unityActivity, message, 0);
-                toastObject.Call("show");
-            }));
+            inputField.image.color = Color.green;
+            //activate buttons
+            deskButton.SetActive(true);
+            chairButton.SetActive(true);
+            return true;
+        }
+        else
+        {
+            inputField.image.color = Color.red;
+            //deactivate buttons
+            deskButton.SetActive(false);
+            chairButton.SetActive(false);
+            return false;
         }
     }
 
