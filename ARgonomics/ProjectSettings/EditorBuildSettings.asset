@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ArgonomicsScene.unity
     guid: 4f3d5fa0c4c50d3458541686c6f95ea3
+  - enabled: 1
+    path: Assets/Scenes/ChairScene.unity
+    guid: c596758f12fa01046854c9eaa53f13e6
   m_configObjects: {}
