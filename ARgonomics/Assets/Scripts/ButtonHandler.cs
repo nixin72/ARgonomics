@@ -1,27 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonHandler : MonoBehaviour
 {
-    public void OnDesk()
-    {
-        _ShowAndroidToastMessage("onDesk");
-    }
 
-    public void OnChair()
+    public void SceneLoader (int SceneIndex)
     {
-        _ShowAndroidToastMessage("onDesk");
+        SceneManager.LoadScene(SceneIndex);
     }
-
-    public void OnMindfullness()
-    {
-        _ShowAndroidToastMessage("onDesk");
-    }
-
-    public void OnExit()
-    {
-        Application.Quit(0);
-    }
-
+    
     private void _ShowAndroidToastMessage(string message)
     {
         AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
