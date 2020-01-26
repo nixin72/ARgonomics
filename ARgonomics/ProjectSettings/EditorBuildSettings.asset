@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/GoogleARCore/Examples/HelloAR/Scenes/HelloAR.unity
-    guid: e6a6fa04348cb45c9b0221eb19c946da
+    path: Assets/Scenes/LaunchscreenScene.unity
+    guid: 1bdae42ed666adb4a9e4cf791b9df7e1
+  - enabled: 1
+    path: Assets/Scenes/ArgonomicsScene.unity
+    guid: 4f3d5fa0c4c50d3458541686c6f95ea3
   m_configObjects: {}
