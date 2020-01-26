@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChairScene.unity
     guid: c596758f12fa01046854c9eaa53f13e6
+  - enabled: 1
+    path: Assets/Scenes/Mindfulness.unity
+    guid: 96a262070e16a5547b79311cceb993d4
   m_configObjects: {}
