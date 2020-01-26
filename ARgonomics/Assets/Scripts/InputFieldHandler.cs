@@ -32,7 +32,7 @@ public class InputFieldHandler : MonoBehaviour
         var isNumeric = int.TryParse(str, out int num);
         if (isNumeric && num > 0f && num < 300f)
         {
-            Color green = new Color(175/255, 1, 150/255);
+            Color green = new Color(175/255f, 1f, 150/255f);
             inputField.image.color = Color.green;
             //activate buttons
             deskButton.SetActive(true);
@@ -41,7 +41,7 @@ public class InputFieldHandler : MonoBehaviour
         }
         else
         {
-            Color red = new Color(1, 150/255, 150/255);
+            Color red = new Color(1f, 150/255f, 150/255f);
             inputField.image.color = red;
             //deactivate buttons
             deskButton.SetActive(false);
